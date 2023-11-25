@@ -1,1 +1,44 @@
-oui
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>main HUB</title>
+  <link rel="stylesheet" type="text/css" href="style.css" media="all">
+  <script src="app.js"></script>
+</head>
+<body style="background-color: 11e78c;">
+
+<ul class="medias">
+    <li class="bulle"> <a href="recherche.php"> <img src="./loupe.png" class="logo-medias"> </a> </li>
+    <li class="bulle"> <a href="ajouter.php"> <img src="./add.png" class="logo-medias"> </a> </li>
+</ul>
+
+<script>
+
+  document.body.style.backgroundImage = "url('pdc3.jpg')";
+
+const titreSpans = document.querySelectorAll('h1 span');
+const btns = document.querySelectorAll('.btn-first');
+const medias = document.querySelectorAll('.bulle');
+const l1 = document.querySelector('.l1');
+
+window.addEventListener('load', () => {
+
+    const TL = gsap.timeline({paused: true});
+
+    TL
+    .staggerFrom(titreSpans, 1, {top: -50, opacity: 0, ease: "power2.out"}, 0.3)
+    .staggerFrom(btns, 1, {opacity: 0, ease: "power2.out"}, 0.3, '-=1')
+    .from(l1, 1, {width: 0, ease: "power2.out"}, '-=2')
+    .staggerFrom(medias, 1, {right: -200, ease: "power2.out"}, 0.3, '-=1');
+
+    
+    
+
+    TL.play();
+})
+
+
+</script>
+</body>
+</html>
